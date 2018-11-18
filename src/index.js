@@ -10,6 +10,10 @@ var defaultOptions = require(`./defaultOptions`);
 
 function getCommitOutputParser(placeholders, sep) {
   return function parseFormat(output) {
+    if (!output.trim()) {
+      /* Return false if there is no commit information */
+      return false;
+    }
     const values = output.split(sep);
     return zipObject(placeholders, values);
   };
