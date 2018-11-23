@@ -1,6 +1,6 @@
 {
   "name": "git-commits-loader",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "File GIT commits loader",
   "main": "./lib/index.js",
   "scripts": {
@@ -19,6 +19,7 @@
   "license": "MIT",
   "dependencies": {
     "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
     "cross-spawn": "^6.0.5",
     "loader-utils": "^1.1.0",
     "lodash.defaultsdeep": "^4.6.0",
@@ -29,7 +30,6 @@
     "babel-cli": "^6.26.0",
     "babel-plugin-transform-es2015-spread": "^6.22.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
     "eslint": "^4.19.1"
   }
 }
