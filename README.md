@@ -37,6 +37,7 @@ Options:
 - **`last`** (bool) _Default: true_ Get properties of last commit;
 - **`all`** (bool) _Default: false_ Get all commits (heavy);
 - **`formatSep`** (string) Separator of placeholders (by default the separator is quite unique, but you can define your delimiter to avoid collisions)
+- **`uglify`** (bool) Transform code with [uglify-js](https://www.npmjs.com/package/uglify-js) (*This is debug only feature*)
 
 Custom configuration will be deep mixed with the default configuration, thus shape like `{ all: false }` will be correct.
 

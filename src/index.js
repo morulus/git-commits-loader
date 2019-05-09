@@ -6,31 +6,7 @@ var loaderUtils = require(`loader-utils`);
 var isObjectLike = require(`lodash.isobjectlike`);
 var zipObject = require(`lodash.zipobject`);
 var defaultsDeep = require(`lodash.defaultsdeep`);
-var babel = require(`babel-core`);
 var defaultOptions = require(`./defaultOptions`);
-/* Var fs = require(`fs`);
-   Var logFile = fs.createWriteStream(`${__dirname}/debug.log`, { flags: `w` }); */
-
-/* Babel repl */
-function repl(code) {
-  return babel.transform(code, {
-    presets: [
-      [
-  require.resolve(`babel-preset-env`), {
-        targets: {
-          ie: 10
-        }
-      }
-  ]
-    ],
-    ast: false,
-    babelrc: false,
-    comments: false,
-    compact: true,
-    filename: `md.chunk.js`,
-    sourceType: `module`
-  });
-}
 
 function getCommitOutputParser(placeholders, sep) {
   return function parseFormat(output) {
@@ -123,9 +99,20 @@ function getCommitsLoader() {
   }
   const result = `module.exports = Object.assign(
     module.exports,
-    ${JSON.stringify(commits)},
+    ${JSON.stringify(commits)}
   )`;
-  return repl(result).code;
+
+  if (configuration.uglify) {
+    const minified = require(`uglify-js`).minify(result);
+
+    if (minified.error) {
+      throw minified.error;
+    }
+
+    return minified.code;
+  }
+
+  return result;
 }
 
 module.exports = getCommitsLoader;

@@ -1,8 +1,11 @@
 {
   "name": "git-commits-loader",
-  "version": "0.2.2",
+  "version": "0.3.0-beta",
   "description": "File GIT commits loader",
   "main": "./lib/index.js",
+  "files": [
+    "lib"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "babel src -d lib",
@@ -18,18 +21,17 @@
   "author": "Morulus <vladimirmorulus@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "babel-core": "^6.26.3",
-    "babel-preset-env": "^1.7.0",
+    "@babel/core": "^7.4.4",
     "cross-spawn": "^6.0.5",
     "loader-utils": "^1.1.0",
     "lodash.defaultsdeep": "^4.6.0",
     "lodash.isobjectlike": "^4.0.0",
-    "lodash.zipobject": "^4.1.3"
+    "lodash.zipobject": "^4.1.3",
+    "uglify-js": "^3.5.11"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-plugin-transform-es2015-spread": "^6.22.0",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "@babel/cli": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
     "eslint": "^4.19.1"
   }
 }

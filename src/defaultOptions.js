@@ -19,5 +19,8 @@ module.exports = {
   all: false,
 
   /* Seprator for pretty format */
-  formatSep: DEFAULT_GIT_FORMAT_SEPARATOR
+  formatSep: DEFAULT_GIT_FORMAT_SEPARATOR,
+
+  /* Iglify code */
+  uglify: false
 };
